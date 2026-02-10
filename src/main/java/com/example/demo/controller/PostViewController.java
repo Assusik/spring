@@ -19,10 +19,11 @@ public class PostViewController {
 
     @RequestMapping(path = "/main", method = RequestMethod.GET)
     public String list(Model model) {
-        model.addAttribute("appName", "Мейн меню");
+        model.addAttribute("appName", "Лента");
         model.addAttribute("posts", postsService.listAllPosts());
         return "list";
     }
+
     @ResponseBody
     @RequestMapping(path = "/post/{id}", method = RequestMethod.GET)
     public String single(@PathVariable("id") Long id) {

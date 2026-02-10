@@ -9,8 +9,18 @@ import java.util.List;
 
 @Service
 public class PostService {
+
+    private List<Post> posts = new ArrayList<>();
+    public PostService(){
+        posts.add(new Post("1 пост", 2, new Date()));
+        posts.add(new Post("2 пост", 5, new Date()));
+        posts.add(new Post("3 пост", 14, new Date()));
+    }
     public List<Post> listAllPosts(){
-        var list =  List.of(new Post("1 пост",2,new Date()),new Post("2 пост",5,new Date()),new Post("3 пост",14,new Date()));
-        return list;
+
+        return posts;
+    }
+    public void create(String text) {
+        posts.add(new Post(text, new Date()));
     }
 }
