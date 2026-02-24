@@ -12,15 +12,16 @@ public class PostService {
 
     private List<Post> posts = new ArrayList<>();
     public PostService(){
-        posts.add(new Post("1 пост", 2, new Date()));
-        posts.add(new Post("2 пост", 5, new Date()));
-        posts.add(new Post("3 пост", 14, new Date()));
+        posts.add(new Post(0,"1 пост", 2, new Date()));
+        posts.add(new Post(1,"2 пост", 5, new Date()));
+        posts.add(new Post(2,"3 пост", 14, new Date()));
     }
     public List<Post> listAllPosts(){
 
         return posts;
     }
     public void create(String text) {
-        posts.add(new Post(text, new Date()));
+        var id = posts.size();
+        posts.add(new Post(id,text, new Date()));
     }
 }
